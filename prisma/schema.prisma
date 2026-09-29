@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Article {
+  codigo                String         @id
+  activo                Boolean
+  corte                 String
+  mercado               String
+  paisDestino           String
+  temperatura           String
+  vidaUtilDias          Int
+  nombreBusqueda        String
+  identificacion        Json
+  productoDestino       Json
+  codigosAsociaciones   Json
+  envasePesaje          Json
+  etiquetado             Json
+  fechasOperacion       Json
+  comercialOperativo    Json
+  calidadSeguridad      Json
+  metadata              Json
+  technicalSheet        TechnicalSheet?
+
+  @@index([corte, mercado, temperatura])
+}
+
+model TechnicalSheet {
+  fichaId          String   @id
+  articuloCodigo   String   @unique
+  titulo           String
+  version          String
+  idioma           String
+  estado           String
+  createdAt        DateTime
+  updatedAt        DateTime
+  sourceNote       String
+  article          Article  @relation(fields: [articuloCodigo], references: [codigo], onDelete: Cascade)
+}
+
+model DemoUser {
+  id           String        @id
+  displayName  String
+  savedFilters SavedFilter[]
+}
+
+model SavedFilter {
+  id          String   @id
+  ownerUserId String
+  name        String
+  description String?
+  search      Json
+  createdAt   DateTime
+  updatedAt   DateTime
+  owner       DemoUser @relation(fields: [ownerUserId], references: [id], onDelete: Cascade)
+
+  @@index([ownerUserId])
+}

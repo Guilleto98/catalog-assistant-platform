@@ -1,0 +1,397 @@
+{
+  "info": {
+    "_postman_id": "d56ea5e2-1d6d-4ac4-9ea2-6ec05de00001",
+    "name": "Uruguay Meat Catalog API",
+    "description": "Colección local para probar una API educativa de catálogo cárnico uruguayo. Todos los datos son sintéticos y no oficiales. Ejecutar primero la API en http://localhost:3000.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:3000/api/v1", "type": "string" },
+    { "key": "demo_user_id", "value": "demo-user-01", "type": "string" },
+    { "key": "other_demo_user_id", "value": "demo-user-02", "type": "string" },
+    { "key": "article_code", "value": "900001", "type": "string" },
+    { "key": "technical_sheet_id", "value": "FT-DEMO-900001", "type": "string" },
+    { "key": "saved_filter_id", "value": "", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "01 - Estado y metadata",
+      "item": [
+        {
+          "name": "Health check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{base_url}}/health", "host": ["{{base_url}}"], "path": ["health"] },
+            "description": "Debe devolver status ok, dataset v1 y 50 artículos."
+          }
+        },
+        {
+          "name": "Campos filtrables",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/metadata/filterable-fields",
+              "host": ["{{base_url}}"],
+              "path": ["metadata", "filterable-fields"]
+            },
+            "description": "Contrato central de paths, tipos, operadores, unidades y valores permitidos."
+          }
+        }
+      ]
+    },
+    {
+      "name": "02 - Artículos",
+      "item": [
+        {
+          "name": "Buscar bife ancho para China",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filters\": [\n    {\n      \"field\": \"producto_destino.corte\",\n      \"operator\": \"eq\",\n      \"value\": \"BIFE_ANCHO\"\n    },\n    {\n      \"field\": \"producto_destino.mercado\",\n      \"operator\": \"eq\",\n      \"value\": \"CHINA\"\n    }\n  ],\n  \"sort\": [\n    {\n      \"field\": \"identificacion.codigo\",\n      \"direction\": \"asc\"\n    }\n  ],\n  \"page\": 1,\n  \"page_size\": 20\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/articles/search",
+              "host": ["{{base_url}}"],
+              "path": ["articles", "search"]
+            },
+            "description": "Resultado esperado: código 900001."
+          }
+        },
+        {
+          "name": "Buscar vida útil mayor o igual a 395 días",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filters\": [\n    {\n      \"field\": \"producto_destino.vida_util\",\n      \"operator\": \"gte\",\n      \"value\": 395\n    }\n  ],\n  \"page_size\": 50\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/articles/search",
+              "host": ["{{base_url}}"],
+              "path": ["articles", "search"]
+            }
+          }
+        },
+        {
+          "name": "Buscar artículos sin código INAC",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filters\": [\n    {\n      \"field\": \"codigos_asociaciones.codigo_inac\",\n      \"operator\": \"is_null\"\n    }\n  ],\n  \"page_size\": 50\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/articles/search",
+              "host": ["{{base_url}}"],
+              "path": ["articles", "search"]
+            }
+          }
+        },
+        {
+          "name": "Obtener artículo completo",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/articles/{{article_code}}",
+              "host": ["{{base_url}}"],
+              "path": ["articles", "{{article_code}}"]
+            }
+          }
+        },
+        {
+          "name": "Comparar tres artículos",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codes\": [\n    \"900001\",\n    \"900002\",\n    \"900003\"\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/articles/compare",
+              "host": ["{{base_url}}"],
+              "path": ["articles", "compare"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "03 - Similitud y aptitud",
+      "item": [
+        {
+          "name": "Similares por artículo",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reference_code\": \"900001\",\n  \"limit\": 10\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/articles/similar",
+              "host": ["{{base_url}}"],
+              "path": ["articles", "similar"]
+            }
+          }
+        },
+        {
+          "name": "Similares con requisitos obligatorios",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reference_code\": \"900001\",\n  \"required\": {\n    \"producto_destino.temperatura\": \"CONGELADO\",\n    \"producto_destino.mercado\": \"CHINA\"\n  },\n  \"limit\": 10\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/articles/similar",
+              "host": ["{{base_url}}"],
+              "path": ["articles", "similar"]
+            },
+            "description": "Muestra candidatos aptos separados de candidatos con score alto pero no aptos."
+          }
+        },
+        {
+          "name": "Similares por features",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"features\": {\n    \"producto_destino.corte\": \"BIFE_ANCHO\",\n    \"identificacion.especie\": \"BOVINO\",\n    \"producto_destino.mercado\": \"CHINA\",\n    \"producto_destino.temperatura\": \"CONGELADO\",\n    \"producto_destino.presentacion\": \"SIN_HUESO\",\n    \"envase_pesaje.envase_primario\": \"VACIO\"\n  },\n  \"required\": {\n    \"producto_destino.mercado\": \"CHINA\",\n    \"producto_destino.temperatura\": \"CONGELADO\"\n  },\n  \"limit\": 10\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/articles/similar",
+              "host": ["{{base_url}}"],
+              "path": ["articles", "similar"]
+            }
+          }
+        },
+        {
+          "name": "Sin candidatos aptos",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reference_code\": \"900001\",\n  \"required\": {\n    \"producto_destino.mercado\": \"CHINA\",\n    \"producto_destino.presentacion\": \"CON_HUESO\"\n  },\n  \"limit\": 10\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/articles/similar",
+              "host": ["{{base_url}}"],
+              "path": ["articles", "similar"]
+            },
+            "description": "Resultado esperado: eligible_candidates vacío."
+          }
+        }
+      ]
+    },
+    {
+      "name": "04 - Fichas técnicas",
+      "item": [
+        {
+          "name": "Ficha por artículo",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/articles/{{article_code}}/technical-sheet",
+              "host": ["{{base_url}}"],
+              "path": ["articles", "{{article_code}}", "technical-sheet"]
+            }
+          }
+        },
+        {
+          "name": "Ficha por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/technical-sheets/{{technical_sheet_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["technical-sheets", "{{technical_sheet_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "05 - Filtros guardados",
+      "description": "Ejecutar esta carpeta en orden. Crear filtro guarda automáticamente saved_filter_id.",
+      "item": [
+        {
+          "name": "Crear filtro y capturar ID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Filtro creado', function () { pm.response.to.have.status(201); });",
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set('saved_filter_id', body.id);",
+                  "console.log('saved_filter_id:', body.id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-Demo-User-Id", "value": "{{demo_user_id}}", "type": "text" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"China congelados\",\n  \"description\": \"Productos congelados destinados a China\",\n  \"search\": {\n    \"filters\": [\n      {\n        \"field\": \"producto_destino.mercado\",\n        \"operator\": \"eq\",\n        \"value\": \"CHINA\"\n      },\n      {\n        \"field\": \"producto_destino.temperatura\",\n        \"operator\": \"eq\",\n        \"value\": \"CONGELADO\"\n      }\n    ],\n    \"sort\": []\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/saved-filters",
+              "host": ["{{base_url}}"],
+              "path": ["saved-filters"]
+            }
+          }
+        },
+        {
+          "name": "Listar mis filtros",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "X-Demo-User-Id", "value": "{{demo_user_id}}", "type": "text" }],
+            "url": {
+              "raw": "{{base_url}}/saved-filters",
+              "host": ["{{base_url}}"],
+              "path": ["saved-filters"]
+            }
+          }
+        },
+        {
+          "name": "Obtener filtro guardado",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "X-Demo-User-Id", "value": "{{demo_user_id}}", "type": "text" }],
+            "url": {
+              "raw": "{{base_url}}/saved-filters/{{saved_filter_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["saved-filters", "{{saved_filter_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Ejecutar filtro guardado",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "X-Demo-User-Id", "value": "{{demo_user_id}}", "type": "text" }],
+            "url": {
+              "raw": "{{base_url}}/saved-filters/{{saved_filter_id}}/execute",
+              "host": ["{{base_url}}"],
+              "path": ["saved-filters", "{{saved_filter_id}}", "execute"]
+            }
+          }
+        },
+        {
+          "name": "Verificar ownership con otro usuario (espera 404)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('No revela filtros ajenos', function () { pm.response.to.have.status(404); });",
+                  "pm.expect(pm.response.json().error.code).to.eql('SAVED_FILTER_NOT_FOUND');"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "X-Demo-User-Id", "value": "{{other_demo_user_id}}", "type": "text" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/saved-filters/{{saved_filter_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["saved-filters", "{{saved_filter_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar filtro guardado",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Filtro eliminado', function () { pm.response.to.have.status(204); });",
+                  "pm.collectionVariables.unset('saved_filter_id');"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "X-Demo-User-Id", "value": "{{demo_user_id}}", "type": "text" }],
+            "url": {
+              "raw": "{{base_url}}/saved-filters/{{saved_filter_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["saved-filters", "{{saved_filter_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "06 - Errores esperados",
+      "item": [
+        {
+          "name": "Artículo inexistente - 404",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/articles/900999",
+              "host": ["{{base_url}}"],
+              "path": ["articles", "900999"]
+            }
+          }
+        },
+        {
+          "name": "Campo de filtro inválido - 400",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filters\": [\n    {\n      \"field\": \"campo.inexistente\",\n      \"operator\": \"eq\",\n      \"value\": \"X\"\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/articles/search",
+              "host": ["{{base_url}}"],
+              "path": ["articles", "search"]
+            }
+          }
+        },
+        {
+          "name": "Filtro personal sin usuario - 400",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/saved-filters",
+              "host": ["{{base_url}}"],
+              "path": ["saved-filters"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
