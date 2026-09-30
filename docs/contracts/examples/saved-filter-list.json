@@ -1,0 +1,28 @@
+{
+  "filters": [
+    {
+      "id": "filter_example",
+      "name": "China",
+      "criteria": {
+        "filters": [
+          {
+            "field": "producto_destino.corte",
+            "label": "Corte",
+            "operator": "eq",
+            "value": "BIFE_ANCHO",
+            "displayValue": "BIFE_ANCHO"
+          },
+          {
+            "field": "producto_destino.mercado",
+            "label": "Mercado",
+            "operator": "eq",
+            "value": "CHINA",
+            "displayValue": "CHINA"
+          }
+        ]
+      },
+      "createdAt": "2026-09-30T12:00:00Z",
+      "updatedAt": "2026-09-30T12:00:00Z"
+    }
+  ]
+}

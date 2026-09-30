@@ -1,0 +1,1380 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/v1/articles/search": {
+      "post": {
+        "operationId": "ArticlesController_search",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchArticlesDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchArticlesResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Busca artículos con filtros determinísticos",
+        "tags": [
+          "articles"
+        ]
+      }
+    },
+    "/api/v1/articles/compare": {
+      "post": {
+        "operationId": "ArticlesController_compare",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompareArticlesDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompareArticlesResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Compara atributos de 2 a 10 artículos",
+        "tags": [
+          "articles"
+        ]
+      }
+    },
+    "/api/v1/articles/{codigo}": {
+      "get": {
+        "operationId": "ArticlesController_findOne",
+        "parameters": [
+          {
+            "name": "codigo",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArticleDocumentResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Obtiene un artículo completo",
+        "tags": [
+          "articles"
+        ]
+      }
+    },
+    "/api/v1/articles/similar": {
+      "post": {
+        "operationId": "SimilarityController_similar",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SimilarArticlesDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FindSimilarArticlesResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Calcula similitud y aptitud de forma determinística",
+        "tags": [
+          "articles"
+        ]
+      }
+    },
+    "/api/v1/technical-sheets/{fichaId}": {
+      "get": {
+        "operationId": "TechnicalSheetsController_byId",
+        "parameters": [
+          {
+            "name": "fichaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TechnicalSheetResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Obtiene metadatos de una ficha ficticia",
+        "tags": [
+          "technical-sheets"
+        ]
+      }
+    },
+    "/api/v1/articles/{codigo}/technical-sheet": {
+      "get": {
+        "operationId": "TechnicalSheetsController_byArticle",
+        "parameters": [
+          {
+            "name": "codigo",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TechnicalSheetResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Obtiene la ficha asociada al artículo",
+        "tags": [
+          "technical-sheets"
+        ]
+      }
+    },
+    "/api/v1/saved-filters": {
+      "post": {
+        "operationId": "SavedFiltersController_create",
+        "parameters": [
+          {
+            "name": "X-Demo-User-Id",
+            "in": "header",
+            "description": "Simula usuario; no es autenticación",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "demo-user-01"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSavedFilterDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SavedFilterResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Guarda criterios, no resultados",
+        "tags": [
+          "saved-filters"
+        ]
+      },
+      "get": {
+        "operationId": "SavedFiltersController_list",
+        "parameters": [
+          {
+            "name": "X-Demo-User-Id",
+            "in": "header",
+            "description": "Simula usuario; no es autenticación",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "demo-user-01"
+            }
+          },
+          {
+            "name": "x-demo-user-id",
+            "required": true,
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SavedFilterResponseDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "saved-filters"
+        ]
+      }
+    },
+    "/api/v1/saved-filters/{id}": {
+      "get": {
+        "operationId": "SavedFiltersController_get",
+        "parameters": [
+          {
+            "name": "X-Demo-User-Id",
+            "in": "header",
+            "description": "Simula usuario; no es autenticación",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "demo-user-01"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SavedFilterResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "saved-filters"
+        ]
+      },
+      "delete": {
+        "operationId": "SavedFiltersController_remove",
+        "parameters": [
+          {
+            "name": "X-Demo-User-Id",
+            "in": "header",
+            "description": "Simula usuario; no es autenticación",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "demo-user-01"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "saved-filters"
+        ]
+      }
+    },
+    "/api/v1/saved-filters/{id}/execute": {
+      "post": {
+        "operationId": "SavedFiltersController_execute",
+        "parameters": [
+          {
+            "name": "X-Demo-User-Id",
+            "in": "header",
+            "description": "Simula usuario; no es autenticación",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "demo-user-01"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchArticlesResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "saved-filters"
+        ]
+      }
+    },
+    "/api/v1/metadata/filterable-fields": {
+      "get": {
+        "operationId": "MetadataController_fields",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilterableFieldsResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Publica el contrato central de filtros",
+        "tags": [
+          "metadata"
+        ]
+      }
+    },
+    "/api/v1/health": {
+      "get": {
+        "operationId": "HealthController_health",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Estado y versión del dataset",
+        "tags": [
+          "health"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Uruguay Meat Catalog API",
+    "description": "API educativa: datos 100 % sintéticos, no oficiales",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "securitySchemes": {
+      "demo-user": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Demo-User-Id",
+        "description": "Simulación local; no autentica"
+      }
+    },
+    "schemas": {
+      "FilterDto": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string",
+            "example": "producto_destino.mercado"
+          },
+          "operator": {
+            "type": "string",
+            "enum": [
+              "eq",
+              "neq",
+              "in",
+              "contains",
+              "gte",
+              "lte",
+              "between",
+              "is_null"
+            ]
+          },
+          "value": {
+            "type": "object",
+            "example": "CHINA",
+            "description": "Omitir para is_null; array para in/between"
+          }
+        },
+        "required": [
+          "field",
+          "operator"
+        ]
+      },
+      "SortDto": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string",
+            "example": "identificacion.codigo"
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          }
+        },
+        "required": [
+          "field",
+          "direction"
+        ]
+      },
+      "SearchArticlesDto": {
+        "type": "object",
+        "properties": {
+          "filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FilterDto"
+            }
+          },
+          "sort": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SortDto"
+            }
+          },
+          "page": {
+            "type": "object",
+            "default": 1,
+            "minimum": 1
+          },
+          "page_size": {
+            "type": "object",
+            "default": 20,
+            "minimum": 1,
+            "maximum": 50
+          }
+        }
+      },
+      "ArticleSummaryResponseDto": {
+        "type": "object",
+        "properties": {
+          "codigo": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "corte": {
+            "type": "string"
+          },
+          "especie": {
+            "type": "string"
+          },
+          "mercado": {
+            "type": "string"
+          },
+          "pais_destino": {
+            "type": "string"
+          },
+          "temperatura": {
+            "type": "string"
+          },
+          "presentacion": {
+            "type": "string"
+          },
+          "envase_primario": {
+            "type": "string"
+          },
+          "envase_exterior": {
+            "type": "object",
+            "nullable": true
+          },
+          "tipo_peso": {
+            "type": "string"
+          },
+          "peso_promedio_kg": {
+            "type": "number",
+            "nullable": true
+          },
+          "activo": {
+            "type": "boolean"
+          },
+          "ficha_id": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "codigo",
+          "nombre",
+          "corte",
+          "especie",
+          "mercado",
+          "pais_destino",
+          "temperatura",
+          "presentacion",
+          "envase_primario",
+          "envase_exterior",
+          "tipo_peso",
+          "peso_promedio_kg",
+          "activo"
+        ]
+      },
+      "PaginationResponseDto": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "number"
+          },
+          "page_size": {
+            "type": "number"
+          },
+          "total_items": {
+            "type": "number"
+          },
+          "total_pages": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "page",
+          "page_size",
+          "total_items",
+          "total_pages"
+        ]
+      },
+      "AppliedFilterResponseDto": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string"
+          },
+          "operator": {
+            "type": "string",
+            "enum": [
+              "eq",
+              "neq",
+              "in",
+              "contains",
+              "gte",
+              "lte",
+              "between",
+              "is_null"
+            ]
+          },
+          "value": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string",
+                "nullable": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "string",
+                      "nullable": true
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "required": [
+          "field",
+          "operator"
+        ]
+      },
+      "AppliedSortResponseDto": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string"
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          }
+        },
+        "required": [
+          "field",
+          "direction"
+        ]
+      },
+      "SearchArticlesResponseDto": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ArticleSummaryResponseDto"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/PaginationResponseDto"
+          },
+          "applied_filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AppliedFilterResponseDto"
+            }
+          },
+          "applied_sort": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AppliedSortResponseDto"
+            }
+          }
+        },
+        "required": [
+          "items",
+          "pagination",
+          "applied_filters",
+          "applied_sort"
+        ]
+      },
+      "CompareArticlesDto": {
+        "type": "object",
+        "properties": {
+          "codes": {
+            "example": [
+              "900001",
+              "900002",
+              "900003"
+            ],
+            "minItems": 2,
+            "maxItems": 10,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "codes"
+        ]
+      },
+      "ArticleComparisonFieldDto": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string"
+          },
+          "values": {
+            "type": "object",
+            "additionalProperties": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "string",
+                  "nullable": true
+                }
+              ]
+            }
+          },
+          "different": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "field",
+          "values",
+          "different"
+        ]
+      },
+      "CompareArticlesResponseDto": {
+        "type": "object",
+        "properties": {
+          "compared_codes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ArticleComparisonFieldDto"
+            }
+          },
+          "different_fields_count": {
+            "type": "number"
+          },
+          "equal_fields_count": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "compared_codes",
+          "fields",
+          "different_fields_count",
+          "equal_fields_count"
+        ]
+      },
+      "ArticleDocumentResponseDto": {
+        "type": "object",
+        "properties": {
+          "identificacion": {
+            "type": "object",
+            "additionalProperties": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "string",
+                  "nullable": true
+                }
+              ]
+            }
+          },
+          "producto_destino": {
+            "type": "object",
+            "additionalProperties": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "string",
+                  "nullable": true
+                }
+              ]
+            }
+          },
+          "codigos_asociaciones": {
+            "type": "object",
+            "additionalProperties": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "string",
+                  "nullable": true
+                }
+              ]
+            }
+          },
+          "envase_pesaje": {
+            "type": "object",
+            "additionalProperties": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "string",
+                  "nullable": true
+                }
+              ]
+            }
+          },
+          "etiquetado": {
+            "type": "object",
+            "additionalProperties": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "string",
+                  "nullable": true
+                }
+              ]
+            }
+          },
+          "fechas_operacion": {
+            "type": "object",
+            "additionalProperties": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "string",
+                  "nullable": true
+                }
+              ]
+            }
+          },
+          "comercial_operativo": {
+            "type": "object",
+            "additionalProperties": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "string",
+                  "nullable": true
+                }
+              ]
+            }
+          },
+          "calidad_seguridad": {
+            "type": "object",
+            "additionalProperties": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "string",
+                  "nullable": true
+                }
+              ]
+            }
+          },
+          "metadata": {
+            "type": "object",
+            "additionalProperties": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "string",
+                  "nullable": true
+                }
+              ]
+            }
+          },
+          "ficha_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "identificacion",
+          "producto_destino",
+          "codigos_asociaciones",
+          "envase_pesaje",
+          "etiquetado",
+          "fechas_operacion",
+          "comercial_operativo",
+          "calidad_seguridad",
+          "metadata"
+        ]
+      },
+      "SimilarArticlesDto": {
+        "type": "object",
+        "properties": {
+          "reference_code": {
+            "type": "string",
+            "example": "900001",
+            "description": "Usar reference_code o features, nunca ambos"
+          },
+          "features": {
+            "type": "object",
+            "example": {
+              "producto_destino.corte": "BIFE_ANCHO"
+            }
+          },
+          "required": {
+            "type": "object",
+            "example": {
+              "producto_destino.mercado": "CHINA"
+            }
+          },
+          "limit": {
+            "type": "object",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 10
+          }
+        }
+      },
+      "SimilarityEvaluationDto": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "MATCH",
+              "MISMATCH",
+              "NOT_AVAILABLE"
+            ]
+          },
+          "candidate_value": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string",
+                "nullable": true
+              }
+            ]
+          },
+          "reference_value": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string",
+                "nullable": true
+              }
+            ]
+          },
+          "required_value": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string",
+                "nullable": true
+              }
+            ]
+          },
+          "weight": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "field",
+          "status",
+          "candidate_value"
+        ]
+      },
+      "SimilarityCandidateDto": {
+        "type": "object",
+        "properties": {
+          "codigo": {
+            "type": "string"
+          },
+          "similarity_score": {
+            "type": "number"
+          },
+          "eligibility": {
+            "type": "string",
+            "enum": [
+              "ELIGIBLE",
+              "INELIGIBLE"
+            ]
+          },
+          "weighted_evaluation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SimilarityEvaluationDto"
+            }
+          },
+          "required_evaluation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SimilarityEvaluationDto"
+            }
+          }
+        },
+        "required": [
+          "codigo",
+          "similarity_score",
+          "eligibility",
+          "weighted_evaluation",
+          "required_evaluation"
+        ]
+      },
+      "FindSimilarArticlesResponseDto": {
+        "type": "object",
+        "properties": {
+          "criteria_used": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "eligible_candidates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SimilarityCandidateDto"
+            }
+          },
+          "ineligible_candidates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SimilarityCandidateDto"
+            }
+          }
+        },
+        "required": [
+          "criteria_used",
+          "eligible_candidates",
+          "ineligible_candidates"
+        ]
+      },
+      "TechnicalSheetResponseDto": {
+        "type": "object",
+        "properties": {
+          "ficha_id": {
+            "type": "string"
+          },
+          "articulo_codigo": {
+            "type": "string"
+          },
+          "titulo": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "idioma": {
+            "type": "string"
+          },
+          "estado": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "source_note": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "ficha_id",
+          "articulo_codigo",
+          "titulo",
+          "version",
+          "idioma",
+          "estado",
+          "created_at",
+          "updated_at",
+          "source_note"
+        ]
+      },
+      "CreateSavedFilterDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "China congelados"
+          },
+          "description": {
+            "type": "string",
+            "example": "Productos congelados destinados a China"
+          },
+          "search": {
+            "$ref": "#/components/schemas/SearchArticlesDto"
+          }
+        },
+        "required": [
+          "name",
+          "search"
+        ]
+      },
+      "SavedFilterResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "owner_user_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "object",
+            "nullable": true
+          },
+          "search": {
+            "$ref": "#/components/schemas/SearchArticlesDto"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "owner_user_id",
+          "name",
+          "description",
+          "search",
+          "created_at",
+          "updated_at"
+        ]
+      },
+      "FilterableFieldResponseDto": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "string",
+              "number",
+              "boolean",
+              "date"
+            ]
+          },
+          "nullable": {
+            "type": "boolean"
+          },
+          "unit": {
+            "type": "object",
+            "nullable": true
+          },
+          "operators": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "eq",
+                "neq",
+                "in",
+                "contains",
+                "gte",
+                "lte",
+                "between",
+                "is_null"
+              ]
+            }
+          },
+          "used_for_similarity": {
+            "type": "boolean"
+          },
+          "can_be_required": {
+            "type": "boolean"
+          },
+          "allowed_values": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        },
+        "required": [
+          "path",
+          "type",
+          "nullable",
+          "unit",
+          "operators",
+          "used_for_similarity",
+          "can_be_required"
+        ]
+      },
+      "FilterableFieldsResponseDto": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FilterableFieldResponseDto"
+            }
+          }
+        },
+        "required": [
+          "fields"
+        ]
+      },
+      "HealthResponseDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "dataset_version": {
+            "type": "string"
+          },
+          "articles": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "status",
+          "dataset_version",
+          "articles"
+        ]
+      }
+    }
+  }
+}

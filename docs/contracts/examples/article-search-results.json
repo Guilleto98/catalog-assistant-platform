@@ -1,0 +1,38 @@
+{
+  "query": {
+    "filters": [
+      {
+        "field": "producto_destino.corte",
+        "label": "Corte",
+        "operator": "eq",
+        "value": "BIFE_ANCHO",
+        "displayValue": "BIFE_ANCHO"
+      },
+      {
+        "field": "producto_destino.mercado",
+        "label": "Mercado",
+        "operator": "eq",
+        "value": "CHINA",
+        "displayValue": "CHINA"
+      }
+    ]
+  },
+  "total": 1,
+  "page": 1,
+  "pageSize": 20,
+  "articles": [
+    {
+      "code": "900001",
+      "name": "Bife ancho congelado CHINA",
+      "species": "BOVINO",
+      "anatomicalGroup": "DORSAL",
+      "cut": "BIFE_ANCHO",
+      "market": "CHINA",
+      "destinationCountry": "CHINA",
+      "temperature": "CONGELADO",
+      "presentation": "SIN_HUESO",
+      "primaryPackaging": "VACIO",
+      "active": true
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "draftId": "draft_example",
+  "status": "NEEDS_REVIEW",
+  "fields": [
+    {
+      "field": "producto_destino.mercado",
+      "label": "Mercado",
+      "rawValue": "China",
+      "normalizedValue": "CHINA",
+      "displayValue": "CHINA",
+      "status": "PROPOSED",
+      "required": true,
+      "source": {
+        "type": "SPREADSHEET",
+        "attachmentId": "att_example",
+        "sheet": "Pedido",
+        "cell": "B2"
+      }
+    }
+  ],
+  "updatedAt": "2026-09-30T12:00:00Z"
+}

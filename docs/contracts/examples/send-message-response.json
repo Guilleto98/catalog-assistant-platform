@@ -1,0 +1,74 @@
+{
+  "userMessage": {
+    "id": "message_user",
+    "conversationId": "conversation_example",
+    "role": "USER",
+    "messageType": "TEXT",
+    "text": "Buscame bife ancho para China.",
+    "attachments": [],
+    "uiEvents": [],
+    "createdAt": "2026-09-30T12:00:00Z"
+  },
+  "assistantMessage": {
+    "id": "message_assistant",
+    "conversationId": "conversation_example",
+    "role": "ASSISTANT",
+    "messageType": "TEXT",
+    "text": "Encontré un artículo: 900001 — Bife ancho congelado CHINA.",
+    "attachments": [],
+    "uiEvents": [
+      {
+        "id": "event_example",
+        "messageId": "message_assistant",
+        "schemaVersion": 1,
+        "sequence": 1,
+        "createdAt": "2026-09-30T12:00:00Z",
+        "type": "ARTICLE_SEARCH_RESULTS",
+        "payload": {
+          "query": {
+            "filters": [
+              {
+                "field": "producto_destino.corte",
+                "label": "Corte",
+                "operator": "eq",
+                "value": "BIFE_ANCHO",
+                "displayValue": "BIFE_ANCHO"
+              },
+              {
+                "field": "producto_destino.mercado",
+                "label": "Mercado",
+                "operator": "eq",
+                "value": "CHINA",
+                "displayValue": "CHINA"
+              }
+            ]
+          },
+          "total": 1,
+          "page": 1,
+          "pageSize": 20,
+          "articles": [
+            {
+              "code": "900001",
+              "name": "Bife ancho congelado CHINA",
+              "species": "BOVINO",
+              "anatomicalGroup": "DORSAL",
+              "cut": "BIFE_ANCHO",
+              "market": "CHINA",
+              "destinationCountry": "CHINA",
+              "temperature": "CONGELADO",
+              "presentation": "SIN_HUESO",
+              "primaryPackaging": "VACIO",
+              "active": true
+            }
+          ]
+        }
+      }
+    ],
+    "createdAt": "2026-09-30T12:00:00Z"
+  },
+  "run": {
+    "id": "run_example",
+    "status": "COMPLETED",
+    "error": null
+  }
+}

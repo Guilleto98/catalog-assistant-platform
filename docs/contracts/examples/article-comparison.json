@@ -1,0 +1,65 @@
+{
+  "articles": [
+    {
+      "code": "900001",
+      "name": "Bife ancho congelado CHINA"
+    },
+    {
+      "code": "900002",
+      "name": "Bife ancho refrigerado BRASIL"
+    }
+  ],
+  "rows": [
+    {
+      "field": "identificacion.nombre",
+      "label": "Nombre",
+      "values": [
+        {
+          "articleCode": "900001",
+          "value": "Bife ancho congelado CHINA",
+          "displayValue": "Bife ancho congelado CHINA"
+        },
+        {
+          "articleCode": "900002",
+          "value": "Bife ancho refrigerado BRASIL",
+          "displayValue": "Bife ancho refrigerado BRASIL"
+        }
+      ],
+      "status": "DIFFERENT"
+    },
+    {
+      "field": "identificacion.especie",
+      "label": "Especie",
+      "values": [
+        {
+          "articleCode": "900001",
+          "value": "BOVINO",
+          "displayValue": "BOVINO"
+        },
+        {
+          "articleCode": "900002",
+          "value": "BOVINO",
+          "displayValue": "BOVINO"
+        }
+      ],
+      "status": "SAME"
+    },
+    {
+      "field": "producto_destino.temperatura",
+      "label": "Temperatura",
+      "values": [
+        {
+          "articleCode": "900001",
+          "value": "CONGELADO",
+          "displayValue": "CONGELADO"
+        },
+        {
+          "articleCode": "900002",
+          "value": "REFRIGERADO",
+          "displayValue": "REFRIGERADO"
+        }
+      ],
+      "status": "DIFFERENT"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+# Overlay for updating an already initialized catalog without destructive seeding.
+services:
+  api:
+    command: ["sh", "-c", "npx prisma migrate deploy && node dist/main.js"]

@@ -1,0 +1,15 @@
+{
+  "sheet": {
+    "id": "FT-DEMO-900001",
+    "articleCode": "900001",
+    "title": "Ficha técnica demo - 900001",
+    "version": "1.0-demo",
+    "language": "es",
+    "status": "SINTETICA_NO_OFICIAL",
+    "createdAt": "2026-01-01T00:00:00Z",
+    "updatedAt": "2026-06-01T00:00:00Z",
+    "sourceNote": "Ficha ficticia para demostración. No existe PDF oficial asociado.",
+    "documentAvailable": false,
+    "documentId": null
+  }
+}

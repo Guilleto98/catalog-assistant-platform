@@ -1,0 +1,11 @@
+{
+  "id": "att_example",
+  "filename": "pedido.xlsx",
+  "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  "type": "SPREADSHEET",
+  "sizeBytes": 5300,
+  "status": "READY",
+  "createdAt": "2026-09-30T12:00:00Z",
+  "error": null,
+  "transcription": null
+}

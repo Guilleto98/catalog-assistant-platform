@@ -1,0 +1,104 @@
+{
+  "mode": "REFERENCE",
+  "referenceArticleCode": "900001",
+  "draftId": null,
+  "usedCriteria": [
+    {
+      "field": "identificacion.especie",
+      "label": "Especie",
+      "value": "BOVINO",
+      "displayValue": "BOVINO",
+      "required": false
+    },
+    {
+      "field": "producto_destino.temperatura",
+      "label": "Temperatura",
+      "value": "CONGELADO",
+      "displayValue": "CONGELADO",
+      "required": true
+    }
+  ],
+  "ignoredCriteria": [],
+  "eligibleCandidates": [
+    {
+      "article": {
+        "code": "900006",
+        "name": null,
+        "species": "BOVINO",
+        "anatomicalGroup": null,
+        "cut": null,
+        "market": null,
+        "destinationCountry": null,
+        "temperature": "CONGELADO",
+        "presentation": null,
+        "primaryPackaging": null,
+        "active": null
+      },
+      "score": 70.0,
+      "eligibility": "ELIGIBLE",
+      "criteria": [
+        {
+          "field": "identificacion.especie",
+          "label": "Especie",
+          "expectedValue": "BOVINO",
+          "expectedDisplayValue": "BOVINO",
+          "actualValue": "BOVINO",
+          "actualDisplayValue": "BOVINO",
+          "required": false,
+          "status": "MATCH"
+        },
+        {
+          "field": "producto_destino.temperatura",
+          "label": "Temperatura",
+          "expectedValue": "CONGELADO",
+          "expectedDisplayValue": "CONGELADO",
+          "actualValue": "CONGELADO",
+          "actualDisplayValue": "CONGELADO",
+          "required": true,
+          "status": "MATCH"
+        }
+      ]
+    }
+  ],
+  "ineligibleCandidates": [
+    {
+      "article": {
+        "code": "900004",
+        "name": null,
+        "species": "BOVINO",
+        "anatomicalGroup": null,
+        "cut": null,
+        "market": null,
+        "destinationCountry": null,
+        "temperature": "CONGELADO",
+        "presentation": null,
+        "primaryPackaging": null,
+        "active": null
+      },
+      "score": 90.0,
+      "eligibility": "INELIGIBLE",
+      "criteria": [
+        {
+          "field": "identificacion.especie",
+          "label": "Especie",
+          "expectedValue": "BOVINO",
+          "expectedDisplayValue": "BOVINO",
+          "actualValue": "BOVINO",
+          "actualDisplayValue": "BOVINO",
+          "required": false,
+          "status": "MATCH"
+        },
+        {
+          "field": "producto_destino.temperatura",
+          "label": "Temperatura",
+          "expectedValue": "CONGELADO",
+          "expectedDisplayValue": "CONGELADO",
+          "actualValue": "CONGELADO",
+          "actualDisplayValue": "CONGELADO",
+          "required": true,
+          "status": "MISMATCH"
+        }
+      ]
+    }
+  ]
+}

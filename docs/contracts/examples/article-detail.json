@@ -1,0 +1,566 @@
+{
+  "article": {
+    "code": "900001",
+    "name": "Bife ancho congelado CHINA",
+    "groups": [
+      {
+        "key": "identification",
+        "label": "Identificación",
+        "fields": [
+          {
+            "field": "identificacion.codigo",
+            "label": "Código",
+            "value": "900001",
+            "displayValue": "900001"
+          },
+          {
+            "field": "identificacion.codigo_alternativo",
+            "label": "Codigo alternativo",
+            "value": "ALT-900001",
+            "displayValue": "ALT-900001"
+          },
+          {
+            "field": "identificacion.nombre",
+            "label": "Nombre",
+            "value": "Bife ancho congelado CHINA",
+            "displayValue": "Bife ancho congelado CHINA"
+          },
+          {
+            "field": "identificacion.nombre_corto",
+            "label": "Nombre corto",
+            "value": "Bife ancho",
+            "displayValue": "Bife ancho"
+          },
+          {
+            "field": "identificacion.tipo",
+            "label": "Tipo",
+            "value": "CARNE_BOVINA",
+            "displayValue": "CARNE_BOVINA"
+          },
+          {
+            "field": "identificacion.subtipo",
+            "label": "Subtipo",
+            "value": "CORTE_SIN_HUESO",
+            "displayValue": "CORTE_SIN_HUESO"
+          },
+          {
+            "field": "identificacion.especie",
+            "label": "Especie",
+            "value": "BOVINO",
+            "displayValue": "BOVINO"
+          },
+          {
+            "field": "identificacion.familia",
+            "label": "Familia",
+            "value": "BIFE_ANCHO",
+            "displayValue": "BIFE_ANCHO"
+          },
+          {
+            "field": "identificacion.grupo",
+            "label": "Grupo",
+            "value": "CORTES_BOVINOS",
+            "displayValue": "CORTES_BOVINOS"
+          },
+          {
+            "field": "identificacion.subgrupo",
+            "label": "Subgrupo",
+            "value": "DORSAL",
+            "displayValue": "DORSAL"
+          },
+          {
+            "field": "identificacion.grupo_anatomico",
+            "label": "Grupo anatómico",
+            "value": "DORSAL",
+            "displayValue": "DORSAL"
+          },
+          {
+            "field": "identificacion.grupo_madre",
+            "label": "Grupo madre",
+            "value": "CARNE",
+            "displayValue": "CARNE"
+          },
+          {
+            "field": "identificacion.nivel",
+            "label": "Nivel",
+            "value": 3,
+            "displayValue": "3"
+          },
+          {
+            "field": "identificacion.activo",
+            "label": "Activo",
+            "value": true,
+            "displayValue": "Sí"
+          },
+          {
+            "field": "identificacion.descripcion_etiqueta",
+            "label": "Descripcion etiqueta",
+            "value": "BIFE ANCHO - DEMO",
+            "displayValue": "BIFE ANCHO - DEMO"
+          }
+        ]
+      },
+      {
+        "key": "productDestination",
+        "label": "Producto y destino",
+        "fields": [
+          {
+            "field": "producto_destino.corte",
+            "label": "Corte",
+            "value": "BIFE_ANCHO",
+            "displayValue": "BIFE_ANCHO"
+          },
+          {
+            "field": "producto_destino.presentacion",
+            "label": "Presentación",
+            "value": "SIN_HUESO",
+            "displayValue": "SIN_HUESO"
+          },
+          {
+            "field": "producto_destino.mercado",
+            "label": "Mercado",
+            "value": "CHINA",
+            "displayValue": "CHINA"
+          },
+          {
+            "field": "producto_destino.pais_destino",
+            "label": "País de destino",
+            "value": "CHINA",
+            "displayValue": "CHINA"
+          },
+          {
+            "field": "producto_destino.region_destino",
+            "label": "Region destino",
+            "value": "ASIA",
+            "displayValue": "ASIA"
+          },
+          {
+            "field": "producto_destino.temperatura",
+            "label": "Temperatura",
+            "value": "CONGELADO",
+            "displayValue": "CONGELADO"
+          },
+          {
+            "field": "producto_destino.condicion_almacenamiento",
+            "label": "Condicion almacenamiento",
+            "value": "CONGELADO_DEMO",
+            "displayValue": "CONGELADO_DEMO"
+          },
+          {
+            "field": "producto_destino.vida_util",
+            "label": "Vida util",
+            "value": 365,
+            "displayValue": "365"
+          },
+          {
+            "field": "producto_destino.vida_util_unidad",
+            "label": "Vida util unidad",
+            "value": "DIAS",
+            "displayValue": "DIAS"
+          },
+          {
+            "field": "producto_destino.uso_previsto",
+            "label": "Uso previsto",
+            "value": "CONSUMO_HUMANO_DEMO",
+            "displayValue": "CONSUMO_HUMANO_DEMO"
+          },
+          {
+            "field": "producto_destino.categoria",
+            "label": "Categoria",
+            "value": "CORTE_PRIMARIO",
+            "displayValue": "CORTE_PRIMARIO"
+          },
+          {
+            "field": "producto_destino.con_hueso",
+            "label": "Con hueso",
+            "value": false,
+            "displayValue": "No"
+          },
+          {
+            "field": "producto_destino.marmoleo",
+            "label": "Marmoleo",
+            "value": "MEDIO_DEMO",
+            "displayValue": "MEDIO_DEMO"
+          },
+          {
+            "field": "producto_destino.clasificacion",
+            "label": "Clasificacion",
+            "value": "CLASE_DEMO_1",
+            "displayValue": "CLASE_DEMO_1"
+          },
+          {
+            "field": "producto_destino.estado_producto",
+            "label": "Estado producto",
+            "value": "CRUDO",
+            "displayValue": "CRUDO"
+          },
+          {
+            "field": "producto_destino.pais_origen_demo",
+            "label": "Pais origen demo",
+            "value": "URUGUAY",
+            "displayValue": "URUGUAY"
+          },
+          {
+            "field": "producto_destino.observacion_destino",
+            "label": "Observacion destino",
+            "value": null,
+            "displayValue": "No disponible"
+          }
+        ]
+      },
+      {
+        "key": "codesAssociations",
+        "label": "Códigos y asociaciones",
+        "fields": [
+          {
+            "field": "codigos_asociaciones.codigo_inac",
+            "label": "Codigo inac",
+            "value": "INAC-DEMO-001",
+            "displayValue": "INAC-DEMO-001"
+          },
+          {
+            "field": "codigos_asociaciones.asociacion_inac",
+            "label": "Asociacion inac",
+            "value": "ASOC-INAC-DEMO-001",
+            "displayValue": "ASOC-INAC-DEMO-001"
+          },
+          {
+            "field": "codigos_asociaciones.codigo_internacional",
+            "label": "Codigo internacional",
+            "value": "INT-DEMO-900001",
+            "displayValue": "INT-DEMO-900001"
+          },
+          {
+            "field": "codigos_asociaciones.codigo_cliente",
+            "label": "Codigo cliente",
+            "value": "CLI-CHINA-900001",
+            "displayValue": "CLI-CHINA-900001"
+          },
+          {
+            "field": "codigos_asociaciones.codigo_gs1",
+            "label": "Codigo gs1",
+            "value": "GS1-DEMO-900001",
+            "displayValue": "GS1-DEMO-900001"
+          },
+          {
+            "field": "codigos_asociaciones.indicador_angus",
+            "label": "Indicador angus",
+            "value": true,
+            "displayValue": "Sí"
+          },
+          {
+            "field": "codigos_asociaciones.sku_interno",
+            "label": "Sku interno",
+            "value": "SKU-900001",
+            "displayValue": "SKU-900001"
+          },
+          {
+            "field": "codigos_asociaciones.codigo_exportacion",
+            "label": "Codigo exportacion",
+            "value": "EXP-DEMO-CHINA-900001",
+            "displayValue": "EXP-DEMO-CHINA-900001"
+          }
+        ]
+      },
+      {
+        "key": "packagingWeight",
+        "label": "Envase y pesaje",
+        "fields": [
+          {
+            "field": "envase_pesaje.envase_primario",
+            "label": "Envase primario",
+            "value": "VACIO",
+            "displayValue": "VACIO"
+          },
+          {
+            "field": "envase_pesaje.envase_exterior",
+            "label": "Envase exterior",
+            "value": "CAJA_CARTON",
+            "displayValue": "CAJA_CARTON"
+          },
+          {
+            "field": "envase_pesaje.material_envase_primario",
+            "label": "Material envase primario",
+            "value": "BOLSA_MULTICAPA_DEMO",
+            "displayValue": "BOLSA_MULTICAPA_DEMO"
+          },
+          {
+            "field": "envase_pesaje.material_envase_exterior",
+            "label": "Material envase exterior",
+            "value": "CARTON_DEMO",
+            "displayValue": "CARTON_DEMO"
+          },
+          {
+            "field": "envase_pesaje.codigo_envase_primario",
+            "label": "Codigo envase primario",
+            "value": "EP-1",
+            "displayValue": "EP-1"
+          },
+          {
+            "field": "envase_pesaje.codigo_envase_exterior",
+            "label": "Codigo envase exterior",
+            "value": "EE-1",
+            "displayValue": "EE-1"
+          },
+          {
+            "field": "envase_pesaje.peso_envase_primario_kg",
+            "label": "Peso envase primario kg",
+            "value": 0.08,
+            "displayValue": "0.08"
+          },
+          {
+            "field": "envase_pesaje.peso_envase_exterior_kg",
+            "label": "Peso envase exterior kg",
+            "value": 0.65,
+            "displayValue": "0.65"
+          },
+          {
+            "field": "envase_pesaje.tara_total_kg",
+            "label": "Tara total kg",
+            "value": 0.73,
+            "displayValue": "0.73"
+          },
+          {
+            "field": "envase_pesaje.unidad_stock",
+            "label": "Unidad stock",
+            "value": "CAJA",
+            "displayValue": "CAJA"
+          },
+          {
+            "field": "envase_pesaje.piezas_por_caja",
+            "label": "Piezas por caja",
+            "value": 4,
+            "displayValue": "4"
+          },
+          {
+            "field": "envase_pesaje.tipo_peso",
+            "label": "Tipo peso",
+            "value": "VARIABLE",
+            "displayValue": "VARIABLE"
+          },
+          {
+            "field": "envase_pesaje.peso_promedio_kg",
+            "label": "Peso promedio kg",
+            "value": 12,
+            "displayValue": "12"
+          },
+          {
+            "field": "envase_pesaje.peso_minimo_kg",
+            "label": "Peso minimo kg",
+            "value": 10,
+            "displayValue": "10"
+          },
+          {
+            "field": "envase_pesaje.peso_maximo_kg",
+            "label": "Peso maximo kg",
+            "value": 14,
+            "displayValue": "14"
+          },
+          {
+            "field": "envase_pesaje.calibre_minimo",
+            "label": "Calibre minimo",
+            "value": 1,
+            "displayValue": "1"
+          },
+          {
+            "field": "envase_pesaje.calibre_maximo",
+            "label": "Calibre maximo",
+            "value": 3,
+            "displayValue": "3"
+          },
+          {
+            "field": "envase_pesaje.largo_cm",
+            "label": "Largo cm",
+            "value": 60,
+            "displayValue": "60"
+          },
+          {
+            "field": "envase_pesaje.ancho_cm",
+            "label": "Ancho cm",
+            "value": 40,
+            "displayValue": "40"
+          },
+          {
+            "field": "envase_pesaje.alto_cm",
+            "label": "Alto cm",
+            "value": 20,
+            "displayValue": "20"
+          }
+        ]
+      },
+      {
+        "key": "labeling",
+        "label": "Etiquetado",
+        "fields": [
+          {
+            "field": "etiquetado.etiqueta_interna",
+            "label": "Etiqueta interna",
+            "value": "ETI-INT-900001",
+            "displayValue": "ETI-INT-900001"
+          },
+          {
+            "field": "etiquetado.etiqueta_externa",
+            "label": "Etiqueta externa",
+            "value": "ETI-EXT-900001",
+            "displayValue": "ETI-EXT-900001"
+          },
+          {
+            "field": "etiquetado.descripcion_alternativa",
+            "label": "Descripcion alternativa",
+            "value": "Bife ancho demo alternativa",
+            "displayValue": "Bife ancho demo alternativa"
+          },
+          {
+            "field": "etiquetado.descripcion_reportes",
+            "label": "Descripcion reportes",
+            "value": "Bife ancho / CHINA",
+            "displayValue": "Bife ancho / CHINA"
+          },
+          {
+            "field": "etiquetado.descripcion_cliente",
+            "label": "Descripcion cliente",
+            "value": "Bife ancho para CHINA",
+            "displayValue": "Bife ancho para CHINA"
+          },
+          {
+            "field": "etiquetado.descripcion_proforma",
+            "label": "Descripcion proforma",
+            "value": "Bife ancho SIN_HUESO",
+            "displayValue": "Bife ancho SIN_HUESO"
+          },
+          {
+            "field": "etiquetado.idioma_etiqueta",
+            "label": "Idioma etiqueta",
+            "value": "zh",
+            "displayValue": "zh"
+          },
+          {
+            "field": "etiquetado.idioma_cliente",
+            "label": "Idioma cliente",
+            "value": "zh",
+            "displayValue": "zh"
+          },
+          {
+            "field": "etiquetado.rito",
+            "label": "Rito",
+            "value": "HALAL_DEMO_NO_CERTIFICADO",
+            "displayValue": "HALAL_DEMO_NO_CERTIFICADO"
+          },
+          {
+            "field": "etiquetado.marca",
+            "label": "Marca",
+            "value": "MARCA_DEMO_NO_REAL",
+            "displayValue": "MARCA_DEMO_NO_REAL"
+          },
+          {
+            "field": "etiquetado.leyenda_comercial",
+            "label": "Leyenda comercial",
+            "value": "PRODUCTO SINTETICO EDUCATIVO",
+            "displayValue": "PRODUCTO SINTETICO EDUCATIVO"
+          }
+        ]
+      },
+      {
+        "key": "datesOperation",
+        "label": "Fechas y operación",
+        "fields": [
+          {
+            "field": "fechas_operacion.corrimiento_faena",
+            "label": "Corrimiento faena",
+            "value": 0,
+            "displayValue": "0"
+          },
+          {
+            "field": "fechas_operacion.corrimiento_produccion",
+            "label": "Corrimiento produccion",
+            "value": 1,
+            "displayValue": "1"
+          },
+          {
+            "field": "fechas_operacion.corrimiento_congelacion",
+            "label": "Corrimiento congelacion",
+            "value": 1,
+            "displayValue": "1"
+          },
+          {
+            "field": "fechas_operacion.corrimiento_vencimiento",
+            "label": "Corrimiento vencimiento",
+            "value": 365,
+            "displayValue": "365"
+          },
+          {
+            "field": "fechas_operacion.unidad_corrimiento",
+            "label": "Unidad corrimiento",
+            "value": "DIAS",
+            "displayValue": "DIAS"
+          },
+          {
+            "field": "fechas_operacion.fecha_creacion",
+            "label": "Fecha creacion",
+            "value": "2026-01-01T00:00:00.000Z",
+            "displayValue": "2026-01-01T00:00:00.000Z"
+          },
+          {
+            "field": "fechas_operacion.fecha_actualizacion",
+            "label": "Fecha actualizacion",
+            "value": "2026-06-01T00:00:00.000Z",
+            "displayValue": "2026-06-01T00:00:00.000Z"
+          },
+          {
+            "field": "fechas_operacion.turno_preferente",
+            "label": "Turno preferente",
+            "value": "MANANA",
+            "displayValue": "MANANA"
+          },
+          {
+            "field": "fechas_operacion.planta_demo",
+            "label": "Planta demo",
+            "value": "PLANTA_DEMO_1",
+            "displayValue": "PLANTA_DEMO_1"
+          },
+          {
+            "field": "fechas_operacion.linea_produccion_demo",
+            "label": "Linea produccion demo",
+            "value": "LINEA_DEMO_1",
+            "displayValue": "LINEA_DEMO_1"
+          }
+        ]
+      },
+      {
+        "key": "commercialOperation",
+        "label": "Información comercial",
+        "fields": [
+          {
+            "field": "comercial_operativo.canal_venta_demo",
+            "label": "Canal venta demo",
+            "value": "EXPORTACION_DEMO",
+            "displayValue": "EXPORTACION_DEMO"
+          },
+          {
+            "field": "comercial_operativo.pedido_minimo_cajas_demo",
+            "label": "Pedido minimo cajas demo",
+            "value": 10,
+            "displayValue": "10"
+          }
+        ]
+      },
+      {
+        "key": "qualitySafety",
+        "label": "Calidad y seguridad",
+        "fields": [
+          {
+            "field": "calidad_seguridad.estado_validacion",
+            "label": "Estado validacion",
+            "value": "NO_VALIDADO_DEMO",
+            "displayValue": "NO_VALIDADO_DEMO"
+          },
+          {
+            "field": "calidad_seguridad.referencia_calidad",
+            "label": "Referencia calidad",
+            "value": "DATO_SINTETICO_NO_VALIDADO",
+            "displayValue": "DATO_SINTETICO_NO_VALIDADO"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "items": [
+    {
+      "id": "conversation_example",
+      "title": "Buscame bife ancho para China.",
+      "status": "ACTIVE",
+      "preview": "Encontré un artículo: 900001 — Bife ancho congelado CHINA.",
+      "createdAt": "2026-09-30T12:00:00Z",
+      "updatedAt": "2026-09-30T12:00:00Z",
+      "lastMessageAt": "2026-09-30T12:00:00Z"
+    }
+  ],
+  "page": 1,
+  "pageSize": 20,
+  "total": 1
+}

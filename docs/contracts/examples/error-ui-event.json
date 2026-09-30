@@ -1,0 +1,5 @@
+{
+  "code": "CATALOG_UNAVAILABLE",
+  "message": "El catálogo no está disponible.",
+  "retryable": true
+}

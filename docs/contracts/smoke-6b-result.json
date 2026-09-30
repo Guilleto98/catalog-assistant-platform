@@ -1,0 +1,43 @@
+{
+  "stage": "6B",
+  "date": "2026-09-30",
+  "provider": "OpenAI (existing authorized credential)",
+  "catalogBaseUrl": "http://127.0.0.1:3001/api/v1 (temporary current-code instance)",
+  "isolatedTemporaryDatabases": true,
+  "catalogFlow": [
+    {"operation":"search","status":"COMPLETED","uiEvents":["ARTICLE_SEARCH_RESULTS"],"durationMs":8334.2},
+    {"operation":"detail","status":"COMPLETED","uiEvents":["ARTICLE_DETAIL"],"durationMs":5909.4},
+    {"operation":"similarity","status":"COMPLETED","uiEvents":["SIMILARITY_RESULTS"],"durationMs":12991.9},
+    {"operation":"technicalSheet","status":"COMPLETED","uiEvents":["TECHNICAL_SHEET"],"durationMs":4585.6}
+  ],
+  "eligibilityRegression": {
+    "900004":{"score":90,"eligibility":"INELIGIBLE"},
+    "900006":{"score":70,"eligibility":"ELIGIBLE"}
+  },
+  "documentFlow": {
+    "type":"SPREADSHEET",
+    "analyzedFields":["producto_destino.corte","producto_destino.mercado","producto_destino.temperatura"],
+    "initialStatus":"NEEDS_REVIEW",
+    "correction":{"previousValue":"CHINA","newValue":"BRASIL","durationMs":5332.3,"uiEvents":["REQUEST_DRAFT","REQUEST_DRAFT"]},
+    "similarity":{"mode":"DRAFT","durationMs":9704.0,"uiEvents":["SIMILARITY_RESULTS"]},
+    "historicalDraftUnchanged":true
+  },
+  "admin":{"catalogRuns":4,"catalogTools":5,"documentRuns":2,"documentTools":3},
+  "performance": {
+    "scopeLatencyMs":[2713.4,1283.6,2530.5,1150.9,1392.4,1244.1],
+    "presenterLatencyMs":[0.048,3.236,0.518,0.214,2.311,0.253],
+    "uiPersistenceFlushMs":[0.249,0.805,0.444,0.653,0.570,0.533],
+    "toolLatencyMs":[8.867,17.860,10.191,15.801,9.501,25.120,1.408,9.237],
+    "note":"Flush measurement excludes final transaction commit; provider/root time dominates total latency."
+  },
+  "historyAcceptance": {
+    "applicationRestarted":true,
+    "outboundHttpBlocked":true,
+    "agentExecutionBlocked":true,
+    "adkSessionHistoryBlocked":true,
+    "intakeLookupBlocked":true,
+    "catalogConversationExactlyRestored":true,
+    "documentConversationExactlyRestored":true
+  },
+  "environmentWarning":"The existing Docker service on port 3000 omits used_for_similarity/can_be_required metadata. The current local source passes integration. Docker must be rebuilt for those capabilities."
+}

@@ -1,0 +1,7 @@
+{
+  "error": {
+    "code": "CONVERSATION_NOT_FOUND",
+    "message": "La conversación no existe.",
+    "requestId": "req_example"
+  }
+}

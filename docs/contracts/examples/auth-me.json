@@ -1,0 +1,9 @@
+{
+  "id": "user_example",
+  "email": "demo@example.test",
+  "role": "CLIENT_USER",
+  "organization": {
+    "id": "org_example",
+    "name": "Organización de ejemplo"
+  }
+}
